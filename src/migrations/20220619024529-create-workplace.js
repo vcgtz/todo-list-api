@@ -6,28 +6,28 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.BIGINT
+        type: Sequelize.BIGINT,
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING(128)
+        type: Sequelize.STRING(128),
       },
       description: {
         allowNull: true,
-        type: Sequelize.TEXT('tiny')
+        type: Sequelize.TEXT('tiny'),
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   // eslint-disable-next-line no-unused-vars
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('workplaces');
-  }
+  },
 };

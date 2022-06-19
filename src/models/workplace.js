@@ -13,27 +13,30 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
 
-  Workplace.init({
-    id: {
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false,
-      type: DataTypes.BIGINT
+  Workplace.init(
+    {
+      id: {
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+        type: DataTypes.BIGINT,
+      },
+      name: {
+        allowNull: false,
+        type: DataTypes.STRING(128),
+      },
+      description: {
+        allowNull: true,
+        type: DataTypes.TEXT('tiny'),
+      },
     },
-    name: {
-      allowNull: false,
-      type: DataTypes.STRING(128)
-    },
-    description: {
-      allowNull: true,
-      type: DataTypes.TEXT('tiny')
+    {
+      sequelize,
+      timestamps: true,
+      tableName: 'workplaces',
+      modelName: 'Workplace',
     }
-  }, {
-    sequelize,
-    timestamps: true,
-    tableName: 'workplaces',
-    modelName: 'Workplace',
-  });
+  );
 
   return Workplace;
 };
